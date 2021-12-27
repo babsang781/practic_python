@@ -1,2 +1,0 @@
-The folder of practice python libraries.
-It's going to contain practice code of Numpy, Pandas, Matplotlib Libraries.
