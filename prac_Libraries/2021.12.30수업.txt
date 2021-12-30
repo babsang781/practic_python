@@ -1,4 +1,4 @@
-2021.12.30 <오늘 수업 내용>
+2021.12.30 <pandas 수업 내용>
 - series 연산,  추가,  삭제
 	- population /1000000         # series 연산 : value 에만 영향을 줌 (사칙연산 가능)
 	- population - population2         # 시리즈 끼리의 연산 
