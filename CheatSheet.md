@@ -3,7 +3,7 @@
   - sum(), mean(), max(), min(),abs(), pow(x,2)
   - 정렬: sorted(), reversed(), range(0,11,1) 범위 값 생성
   - 형 변환:  str(), tuple(), list(), int()  / type(): 형 확인
-  	- int('11',2) -bin>dec ,hex(),bin()-이진수, ord()<->char(): ascii 
+	- int('11',2) -bin>dec ,hex(),bin()-이진수, ord()<->char(): ascii 
 	- list(zip([1,2,3],[10,20,30])) >> [(1,20),(2,20),(3,30)]
   - bool()- 0,none, null ->False / all(시퀀스) -시퀀스가 모두 참>True / any(시퀀스) - 시퀀스가 하나라도 참>True
 <br/>
