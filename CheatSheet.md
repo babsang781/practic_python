@@ -41,39 +41,40 @@
 <h2>Pandas, Series 와 DataFrame</h2>
 <h3>Series </h3>
   - series 연산,  추가,  삭제
-	- population /1000000         # series 연산 : value 에만 영향을 줌 (사칙연산 가능)
-	- population - population2         # 시리즈 끼리의 연산 
+  - population /1000000         # series 연산 : value 에만 영향을 줌 (사칙연산 가능)
+  - population - population2         # 시리즈 끼리의 연산 
 
 <h4>series인덱싱</h4>
-	- population[1],  population['부산'] ,  population['부산':'대구']     # series 인덱싱  : 둘 다 가능  , '부산':'대구'는 '대구' 포함결과
-	- population[ ['인천', '서울','인천'] ]  , 또는 [ [0,3,1] ]      #  []  리스트 안에 넣음으로서 다중 인덱싱 
-	- population[(population<=5000000) & (population>=2500000)]      #boolean 인덱싱
-	- ds = population - population2  ->   ds[ds.notnull()]   또는 ds[ds.isnull()]        # null 여부로 인덱싱  
+  - population[1],  population['부산'] ,  population['부산':'대구']     # series 인덱싱  : 둘 다 가능  , '부산':'대구'는 '대구' 포함결과
+  - population[ ['인천', '서울','인천'] ]  , 또는 [ [0,3,1] ]      #  []  리스트 안에 넣음으로서 다중 인덱싱 
+  - population[(population<=5000000) & (population>=2500000)]      #boolean 인덱싱
+  - ds = population - population2  ->   ds[ds.notnull()]   또는 ds[ds.isnull()]        # null 여부로 인덱싱  
 
-- 데이터프레임 정보 확인 
-	- df.index = ['서울', '부산','인천','대구']          # 데이터 프레임을 만든 후에 인덱스 설정
-	- # 값 , 인덱스 , 컬림  : values , index , columns
-	- print(df2.values) , print(df2.index) ,  print(df2.columns) 
-
-- 데이터 프레임 생성과 전치
-	- data = [ 
-		    [9904312, 9631482],
-		    [3448727, 3393191],
-		    [2890451, 6232035],
-		    [2466052, 2431774]
-		]
+<h4>데이터프레임 정보 확인 </h4>
+  - df.index = ['서울', '부산','인천','대구']          # 데이터 프레임을 만든 후에 인덱스 설정
+  - 값 , 인덱스 , 컬림  : values , index , columns
+  - print(df2.values) , print(df2.index) ,  print(df2.columns) 
+	
+<h4>데이터 프레임 생성과 전치</h4>
+  - data = [ 
+    	[9904312, 9631482],
+	[3448727, 3393191],
+    	[2890451, 6232035],
+    	[2466052, 2431774]
+	]
 		
-		ind = ['서울','부산','인천','대구']      # 직접 입력 가능, 별도 선언 해서 입력도 가능 
-		col = ['2015','2010']        
-		df3 = pd.DataFrame(data,  index = ind ,  columns = col)       # 별도 선언한 index ,col 이름 대입
-		print(df3)
+	ind = ['서울','부산','인천','대구']      # 직접 입력 가능, 별도 선언 해서 입력도 가능 
+	col = ['2015','2010']        
+	df3 = pd.DataFrame(data,  index = ind ,  columns = col)       # 별도 선언한 index ,col 이름 대입
+	print(df3)
 
-	- df2 = df3.T        # 전치 기능 df.T  // df.transpose() : 이것도 천치, transpose()는 numpy에서도 가능
+  - df2 = df3.T        # 전치 기능 df.T  // df.transpose() : 이것도 천치, transpose()는 numpy에서도 가능
 
-- 데이터프레임 고급 인덱싱: 인덱서,    iloc: 인덱스 번호 / loc: 지정한 인덱스   [index , columns]
-	- df2['2005'] = [9762546,3512547,2517680,'dd']          # 각 컬럼이 하나의 시리즈라고 보면 됨. 기본이 컬림 기준:
-	- df2['2015']         # 시리즈로 출력
-	- df2[['2015']]         # dataframe 으로 출력
+<h4>데이터프레임 고급 인덱싱: 인덱서</h4>    
+  - iloc: 인덱스 번호 / loc: 지정한 인덱스   [index , columns]
+  - df2['2005'] = [9762546,3512547,2517680,'dd']          # 각 컬럼이 하나의 시리즈라고 보면 됨. 기본이 컬림 기준:
+  - df2['2015']         # 시리즈로 출력
+  - df2[['2015']]         # dataframe 으로 출력
 
-	- df2.loc['서울':'부산', '2015':'2010']        # 주로 loc 를 씀
-	- df2.loc[df2.loc[:,'2010']>=2500000]     == df2.loc[bol,:]   (bol = df2.loc[:,'2010']>=2500000)   # 불리언 인덱싱 가능, bol행열 구분
+  - df2.loc['서울':'부산', '2015':'2010']        # 주로 loc 를 씀
+  - df2.loc[df2.loc[:,'2010']>=2500000]     == df2.loc[bol,:]   (bol = df2.loc[:,'2010']>=2500000)   # 불리언 인덱싱 가능, bol행열 구분
