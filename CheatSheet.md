@@ -1,20 +1,18 @@
 # Python Cheat Sheet
-<hr>
 <h3>- 내장함수 () 안에 수, 변수, 계산, 리스트 등</h3>
-	- sum(), mean(), max(), min(),abs(), pow(x,2)
-	- 정렬: sorted(), reversed(), range(0,11,1) 범위 값 생성
-	- 형 변환:  str(), tuple(), list(), int()  / type(): 형 확인
-		- int('11',2) -bin>dec ,hex(),bin()-이진수, ord()<->char(): ascii 
-		- list(zip([1,2,3],[10,20,30])) >> [(1,20),(2,20),(3,30)]
-	- bool()- 0,none, null ->False / all(시퀀스) -시퀀스가 모두 참>True / any(시퀀스) - 시퀀스가 하나라도 참>True
-
+  - sum(), mean(), max(), min(),abs(), pow(x,2)
+  - 정렬: sorted(), reversed(), range(0,11,1) 범위 값 생성
+  - 형 변환:  str(), tuple(), list(), int()  / type(): 형 확인
+  	- int('11',2) -bin>dec ,hex(),bin()-이진수, ord()<->char(): ascii 
+	- list(zip([1,2,3],[10,20,30])) >> [(1,20),(2,20),(3,30)]
+  - bool()- 0,none, null ->False / all(시퀀스) -시퀀스가 모두 참>True / any(시퀀스) - 시퀀스가 하나라도 참>True
+<br/>
 <h3>- import random as rd</h3>
-	- list1= rd.randrange(1,8)  # 1~7 중의 수
-	- rd.shuffle(list1)
-	- rd.choice(list1)
-	- rd.choice([True,False])
+  - list1= rd.randrange(1,8)  # 1~7 중의 수
+  - rd.shuffle(list1)
+  - rd.choice(list1)
+  - rd.choice([True,False])
  
- <hr>
 <h2>List와 Numpy 배열</h2>
 <h3>list 함수와 키워드 - 인덱싱, 슬라이싱 가능</h3>
   - 추가 : insert(index , 값) 와 append(값) 
@@ -35,8 +33,6 @@
   - [지정한 정수 범위] 2-9사이 정수로 된 3x2랜덤 배열 생성 : np.random.randint(2,10, size=(3,2))
 
 - data = np.loadtxt('ratings.txt', delimiter="::", dtype = 'int')
-
-<hr>
 
 <h2>Pandas, Series 와 DataFrame</h2>
 <h3>Series </h3>
@@ -62,7 +58,6 @@
     	[2890451, 6232035],
     	[2466052, 2431774]
 	]
-		
 	ind = ['서울','부산','인천','대구']      # 직접 입력 가능, 별도 선언 해서 입력도 가능 
 	col = ['2015','2010']        
 	df3 = pd.DataFrame(data,  index = ind ,  columns = col)       # 별도 선언한 index ,col 이름 대입
