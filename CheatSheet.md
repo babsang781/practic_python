@@ -4,8 +4,8 @@
 <br/>- sum(), mean(), max(), min(),abs(), pow(x,2)
 <br/>- 정렬: sorted(), reversed(), range(0,11,1) 범위 값 생성
 <br/>- 형 변환:  str(), tuple(), list(), int()  / type(): 형 확인
-<br/>\t	- int('11',2) -bin>dec ,hex(),bin()-이진수, ord()<->char(): ascii 
-<br/>\t	- list(zip([1,2,3],[10,20,30])) >> [(1,20),(2,20),(3,30)]
+<br/>&nbsp; - int('11',2) -bin>dec ,hex(),bin()-이진수, ord()<->char(): ascii 
+<br/>&nbsp; - list(zip([1,2,3],[10,20,30])) >> [(1,20),(2,20),(3,30)]
 <br/>- bool()- 0,none, null ->False / all(시퀀스) -시퀀스가 모두 참>True / any(시퀀스) - 시퀀스가 하나라도 참>True
 <br/>
 <h3>- import random as rd</h3>
@@ -25,9 +25,9 @@
 <h3>Numpy Array</h3>
 <br/>-  python 리스트를 numpy 배열에 넣음:   arr = np.array(list1)  # arr에서 쓰는 확인 함수(저장안됨)
 <br/>- 행열 크기: .shape    //  # 전체요소 개수: .size   // # 배열 차원: ndim     
-<br/>- reshape(5[행],10[열])    // # 데이터타입: .dtype    // # 데이터 타입 변환 : arrx.astype('int')   [ 소수점 내림]
+<br/>- reshape(5[행],10[열])    // # 데이터타입: .dtype    // # 데이터 타입 변환 : arrx.astype('int')   [소수점 내림]
 
-<br/>- 0~49까지 정수값이 담긴 1차원 배열 생성 :  arr2 = np.arange(50)
+<br/>- 0부터 49까지 정수값이 담긴 1차원 배열 생성 :  arr2 = np.arange(50)
 <br/>- 1 부터 50까지 50등분한 배열 만들기 np.linspace(1,50,50)
 <br/>- 0으로 초기화 하는 것( 원래 임의값 있음?) np.zeros((3,2))  // .ones  .full((3,4),5) 가능
 <br/>- 0~1 사이 랜덤 값으로 배열 생성 :  np.random.rand(배열의 크기) [행,열] 형태 
@@ -53,16 +53,16 @@
 <br/>- print(df2.values) , print(df2.index) ,  print(df2.columns) 
 	
 <h4>데이터 프레임 생성과 전치</h4>
-<br/>- data = [ 
-    	[9904312, 9631482],
-	[3448727, 3393191],
-    	[2890451, 6232035],
-    	[2466052, 2431774]
-	]
-	ind = ['서울','부산','인천','대구']      # 직접 입력 가능, 별도 선언 해서 입력도 가능 
-	col = ['2015','2010']        
-	df3 = pd.DataFrame(data,  index = ind ,  columns = col)       # 별도 선언한 index ,col 이름 대입
-	print(df3)
+<br/>- data = [
+<br/> &nbsp; &nbsp;[9904312, 9631482],
+<br/> &nbsp; &nbsp;[3448727, 3393191],
+<br/> &nbsp; &nbsp;[2890451, 6232035],
+<br/> &nbsp; &nbsp;[2466052, 2431774]
+<br/> &nbsp; &nbsp;]
+<br/> &nbsp; &nbsp;ind = ['서울','부산','인천','대구']      # 직접 입력 가능, 별도 선언 해서 입력도 가능 
+<br/> &nbsp; &nbsp;col = ['2015','2010']        
+<br/> &nbsp; &nbsp;df3 = pd.DataFrame(data,  index = ind ,  columns = col)       # 별도 선언한 index ,col 이름 대입
+<br/> &nbsp; &nbsp;print(df3)
 
 <br/>- df2 = df3.T        # 전치 기능 df.T  // df.transpose() : 이것도 천치, transpose()는 numpy에서도 가능
 
