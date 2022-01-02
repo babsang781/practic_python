@@ -23,7 +23,7 @@
 
 <h3>Numpy Array</h3>
 -  python 리스트를 numpy 배열에 넣음:   arr = np.array(list1)  # arr에서 쓰는 확인 함수(저장안됨)
-<br/>- 행열 크기: .shape    //  # 전체요소 개수: .size   // # 배열 차원: ndim     
+<br/>- 행열 크기: arr.shape    //  # 전체요소 개수: arr.size    [np.size(arr)]// # 배열 차원: arr.ndim     
 <br/>- reshape(5[행],10[열])    // # 데이터타입: .dtype    // # 데이터 타입 변환 : arrx.astype('int')   [소수점 내림]
 
 <br/>- 0부터 49까지 정수값이 담긴 1차원 배열 생성 :  arr2 = np.arange(50)
