@@ -1,0 +1,137 @@
+matplotlib
+
+plt.plot(np.arange(7),[1,4,5,8,9,5,3], color='g', lw=6,ls = ':',marker='o',ms=18, mfc='g',mec='r',mew=5)
+plt.xlim(-2,8) # limit의 약어 :  lim
+plt.ylim(-1,11)
+plt.show()
+
+x = np.arange(1,51)  # range 와 동일한데 결과가 arr 을 생성
+y = np.random.randint(1,51,size=50)  # 1~ 50 사이의 래럼 값 50개
+
+print(x.shape)
+print(y.shape)
+plt.plot(x,y)
+plt.ylim(30,50)
+plt.xlim(20,40)
+plt.grid()  # 눈금선 설정
+plt.show()
+
+```
+plt.legend(loc = 'best')  # 범례: () 기본값이 'best'
+        best
+	upper right
+	upper left
+	lower left
+	lower right
+	right
+	center left
+	center right
+	lower center
+	upper center
+	center
+```
+
+# 한글폰트 설정
+from matplotlib import rc
+rc('font', family = 'Malgun Gothic')
+
+.head(개수) : 데이터 상위의 몇 개만 출력, 기본값 5 
+.tail(개수) : 데이터 하위의 몇 개만 출력, 기본값 5  
+
+data['요일'].unique()  # 중복제거, 데이터 항목 확인
+```
+array(['일', '월', '화', '수', '목', '금', '토'], dtype=object)
+```
+
+data.info()   # 요약 정보를  확인 , 머신러닝 할 때  자주 사용하게 될 것 . 가장 먼저 보게 되는 데이터 정보 요약
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 4065 entries, 0 to 4064
+Data columns (total 27 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   발생년           4065 non-null   int64  
+ 1   발생년월일시        4065 non-null   int64  
+ 2   발생분           4065 non-null   int64  
+ 3   주야            4065 non-null   object 
+...
+```
+
+data['요일'].value_counts()
+```
+화    608    월    603    금    603    토    596    목    586    수    565    일    504
+Name: 요일, dtype: int64
+```
+
+temp= data['요일'].value_counts()
+print(temp)
+temp[['월', '화', '수', '목', '금', '토','일']]
+
+y = temp[['월', '화', '수', '목', '금', '토','일']]
+x = ['월', '화', '수', '목', '금', '토','일']
+plt.xlabel('요일')
+plt.ylabel('사고건수',rotation=0)
+plt.title('요일별 사망교통사고 건수',fontsize =20, color='r')
+plt.bar(x,y)
+plt.show()
+
+```
+'fontsize': rcParams['axes.titlesize'],
+        'fontweight': rcParams['axes.titleweight'],
+        'color': rcParams['axes.titlecolor'],
+```
+
+# 1. 차대차 사건 중   data[data['사고유형_대분류']=='차대차']
+# 2. 죽거나 다친사람 사상자가 많은 발생지 시도.
+# 3. 시각화
+
+#data.head()
+print(data[ (data['사고유형_대분류']=='차대차')].shape)
+#data[ (data['사고유형_대분류']=='차대차') & (data['사상자수']>3)].shape
+acc = data[(data['사고유형_대분류']=='차대차')]
+acc['발생지시도'].value_counts()
+
+```
+(1642, 27)
+```
+
+```
+경기    330
+충남    163
+경북    156
+경남    146
+전남    134
+전북    133
+서울    112
+충북     95
+강원     80
+대구     67
+부산     53
+광주     42
+인천     41
+제주     27
+대전     27
+울산     26
+세종     10
+Name: 발생지시도, dtype: int64
+```
+
+#acc[['사상자수','발생지시도']]  # 자료 모아 보기
+
+# 그룹화 - groupby( '그룹화 시킬 컬럼' [, ])
+acc_g =acc[['사상자수','발생지시도']].groupby('발생지시도').sum()
+
+x= acc_g.index
+y = acc_g['사상자수']
+
+plt.figure(figsize= (10,5))  # figure(figsize=(가로, 세로)) , 크기는 plt 을 그리기 전에 설정해야함 
+plt.bar(x,y)
+plt.show()
+
+for i, v in enumerate(x):
+    print(i,v, end="\t")
+    plt.text(v, y[i]+10, y[i],              # 좌표 (x축 = v, y축 = y[0]..y[1], 표시 = y[0]..y[1])
+#             fontsize = 11, 
+#             color='blue',
+             horizontalalignment='center')  # horizontalalignment (left, center, right)
+#             verticalalignment='bottom')   # verticalalignment (top, center, bottom)
